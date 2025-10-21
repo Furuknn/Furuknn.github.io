@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Furkan Erbilgin Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <ul>
+      <li><a href="#intro" class="active">Intro</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="intro" class="intro-section">
+    <p class="hello">Hello, I'm</p>
+    <h1>Furkan ERBILGIN</h1>
+<p class="role">Game Developer</p>
+  </header>
+
+  <section id="about" class="about">
+  <h2>About me</h2>
+  <div class="about-content">
+    <div class="about-text">
+      <p>Hi, I'm Furkan, a Game Designer passionate about <b>Gameplay Systems</b>, <b>Level Design</b>, and <b>Player Experience</b>. I specialize in creating engaging mechanics and balanced player challenges. You can see more on my CV!</p>
+
+      <div class="info-grid">
+        <div>
+          <h4>FULL NAME</h4>
+          <p>Furkan ERBILGIN</p>
+        </div>
+        <div>
+          <h4>ADDRESS</h4>
+          <p>Eskişehir, Türkiye</p>
+        </div>
+        <div>
+          <h4>EMAIL</h4>
+			<p>erbilginfurkan@gmail.com</p>
+        </div>
+        <div>
+          <h4>LINKEDIN</h4>
+          <p>@furkan-erbilgin</p>
+        </div>
+      </div>
+
+      <div class="cv-buttons">
+        <a href="Furkan_CV_EN.pdf" class="cv-btn">Download English CV</a>
+        <a href="Furkan_CV_TR.pdf" class="cv-btn">Download Turkish CV</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="projects">
+  <h2>Projects</h2>
+ <div class="project-grid">
+	<div class="project-card">
+    <div class="project-video">
+      <video autoplay loop muted playsinline>
+        <source src="Bov_Gameplay.mp4" type="video/mp4">
+      </video>
+
+      <div class="project-meta">
+        <span>👥 3</span>
+        <span>⏱ 3 Months</span>
+        <span>🔧 Unity</span>
+      </div>
+    </div>
+
+    <div class="project-info">
+      <h3>Blade of Vengeance (2024)</h3>
+      <p class="role">Game Developer</p>
+      <p class="desc">
+      BoV is a <strong>2D pixel-art sword-fighting game</strong> inspired by the <em>sabre</em> form of fencing. The game features both <strong>PvE</strong> and <strong>PvP</strong> game modes. Play as <strong>Erina</strong> and carve your way through story-driven encounters, or test your reflexes against friends in PvP battles featuring four distinct fighting styles, each with its own rhythm and personality.</p>
+    </div>
+  </div>
+
+  <!-- Example of another project -->
+  <div class="project-card">
+    <div class="project-video">
+      <video autoplay loop muted playsinline>
+        <source src="EchoValley.mp4" type="video/mp4">
+      </video>
+
+      <div class="project-meta">
+        <span>👥 5</span>
+        <span>⏱ 6 Months</span>
+        <span>🔧 Unity</span>
+      </div>
+    </div>
+
+    <div class="project-info">
+      <h3>PERS (2025)</h3>
+      <p class="role">Game Programmer</p>
+      <p class="desc">
+        PERS is a <strong>multiplayer puzzle–escape room adventure</strong> where you and your partner play as two archaeologists exploring a <strong>mysterious ancient temple</strong>. You will have to solve intricate puzzles together, until your paths split. What begins as teamwork ends in betrayal, as the final act throws both players into a tense <strong>FPS showdown</strong> where only one can escape.</p>
+    </div>
+  </div>
+</div>
+  
+</section>
+
+<script>
+  window.addEventListener("scroll", () => {
+    const nav = document.querySelector("nav");
+    if (window.scrollY > 50) {
+      nav.style.background = "rgba(0, 0, 0, 0.8)";
+      nav.style.backdropFilter = "blur(14px)";
+    } else {
+      nav.style.background = "rgba(0, 0, 0, 0.55)";
+      nav.style.backdropFilter = "blur(10px)";
+    }
+  });
+</script>
+
+	
+</body>
+</html>
