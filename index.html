@@ -81,7 +81,6 @@
     </div>
   </div>
 
-  <!-- Example of another project -->
   <div class="project-card">
     <div class="project-video">
       <video autoplay loop muted playsinline>
@@ -106,6 +105,74 @@
   
 </section>
 
+<!-- === CONTACT SECTION === -->
+<section id="contact" class="contact">
+  <h2>Let's Get in Touch</h2>
+  <p>If you’d like to collaborate, have a question, or just say hi — feel free to reach out!</p>
+
+  <div class="contact-buttons">
+    <a href="mailto:erbilginfurkan@gmail.com" class="contact-btn">
+      ✉️ Send me an Email
+    </a>
+    <a href="https://www.linkedin.com/in/furkan-erbilgin-13549734a" target="_blank" class="contact-btn">
+      💼 Connect on LinkedIn
+    </a>
+  </div>
+
+  <div class="social-links">
+    <p>YOU CAN ALSO FIND ME HERE:</p>
+    <div class="icons">
+      <a href="https://www.linkedin.com/in/furkan-erbilgin" target="_blank">🔗</a>
+      <a href="https://github.com/furkanerbilgin" target="_blank">🐙</a>
+      <a href="#">💡</a>
+    </div>
+  </div>
+
+  <a href="#intro" class="back-to-top">Back to Top ↑</a>
+
+</section>
+	
+<!-- === SPACESHIP === -->
+	
+<section id="ship-zone" class="ship-zone" aria-label="spaceship zone">
+  <!-- you can add background or other visuals inside this section -->
+  <div class="spaceship-container">
+    <img src="spaceship.png" alt="Spaceship" class="spaceship">
+  </div>
+</section>
+	
+<!-- === BULLET CONTAINER === -->
+<div id="bullet-container"></div>
+	
+<!-- === FOOTER === -->
+<footer class="footer">
+  <div class="footer-left">
+    <img src="pfp.png" alt="Furkan" class="footer-pic">
+    <div>
+      <h4>Furkan Erbilgin</h4>
+      <p>Game Developer | Programmer | VFX Artist</p>
+    </div>
+  </div>
+
+  <div class="footer-right">
+    <h5>Follow Me</h5>
+    <div class="icons">
+      <a href="https://www.linkedin.com/in/furkan-erbilgin-13549734a" target="_blank">
+		  <img src="icon_linkedin.png"></img>
+	  	</a>
+      <a href="https://github.com/furkanerbilgin" target="_blank">
+		  <img src="icon_github.png"></img>
+	  	</a>
+	<a href="https://github.com/furkanerbilgin" target="_blank">
+		  <img src="icon_instagram.png"></img>
+	  	</a>
+    </div>
+  </div>
+</footer>
+	
+	
+	
+<!-- Navigation Bar's blur effect -->
 <script>
   window.addEventListener("scroll", () => {
     const nav = document.querySelector("nav");
@@ -119,6 +186,255 @@
   });
 </script>
 
-	
+<!-- Spaceship logic -->
+<script>
+(() => {
+  const shipZone = document.getElementById('ship-zone');
+  const bulletContainer = document.getElementById('bullet-container');
+  const contactSection = document.getElementById('contact');
+  
+  if (!shipZone || !bulletContainer || !contactSection) { 
+    console.warn('Required elements not found'); 
+    return; 
+  }
+
+  const container = shipZone.querySelector('.spaceship-container');
+  const ship = shipZone.querySelector('.spaceship');
+  if (!container || !ship) { console.warn('Missing ship elements'); return; }
+
+  // state
+  let zoneRect = shipZone.getBoundingClientRect();
+  let contactRect = contactSection.getBoundingClientRect();
+  let shipW = ship.offsetWidth || 72;
+  let targetLeft = (zoneRect.width - shipW) / 2;
+  let displayedLeft = targetLeft;
+  let lastMouseX = zoneRect.left + zoneRect.width / 2;
+  let targetRotation = 0;
+  let rotation = 0;
+  let lastMoveTime = performance.now();
+
+  // Device orientation state
+  let isMobile = false;
+  let lastGamma = 0; // left/right tilt
+  let tiltSensitivity = 2.5; // adjust this to make tilting more/less sensitive
+
+  // tuning
+  const maxRotation = 12;
+  const rotFactor = 0.25;
+  const posLerp = 0.18;
+  const rotLerp = 0.18;
+  const idleDelay = 120;
+  const idleDecay = 0.08;
+
+  // bullets
+  const bullets = [];
+
+  // Detect if mobile device
+  function detectMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+           (window.innerWidth <= 768);
+  }
+
+  function refreshZone() {
+    zoneRect = shipZone.getBoundingClientRect();
+    contactRect = contactSection.getBoundingClientRect();
+    shipW = ship.offsetWidth || shipW;
+    displayedLeft = clampToZone(displayedLeft);
+    targetLeft = clampToZone(targetLeft);
+  }
+
+  function clampToZone(x) {
+    const min = 0;
+    const max = Math.max(0, zoneRect.width - shipW);
+    return Math.min(Math.max(min, x), max);
+  }
+
+  // Mouse movement handler (for desktop)
+  function handleMouseMove(e) {
+    if (isMobile) return; // Don't use mouse events on mobile
+    
+    // recompute zoneRect in case page moved
+    zoneRect = shipZone.getBoundingClientRect();
+
+    const desiredLeftInZone = e.clientX - zoneRect.left - shipW / 2;
+    targetLeft = clampToZone(desiredLeftInZone);
+
+    const dx = e.clientX - lastMouseX;
+    targetRotation = Math.max(-maxRotation, Math.min(maxRotation, dx * rotFactor));
+    lastMouseX = e.clientX;
+    lastMoveTime = performance.now();
+  }
+
+  // Device orientation handler (for mobile)
+  function handleDeviceOrientation(e) {
+    if (!isMobile) return;
+    
+    // Gamma is left/right tilt (-90 to 90 degrees)
+    const gamma = e.gamma; 
+    
+    if (gamma !== null) {
+      // Smooth the tilt data a bit
+      const smoothedGamma = lastGamma * 0.7 + gamma * 0.3;
+      lastGamma = smoothedGamma;
+      
+      // Convert tilt to ship position (gamma ranges from -90 to 90)
+      // We'll use a portion of that range for smoother control
+      const tiltRange = 30; // Use ±30 degrees of tilt for full movement
+      const normalizedTilt = Math.max(-tiltRange, Math.min(tiltRange, smoothedGamma)) / tiltRange;
+      
+      // Convert normalized tilt to ship position
+      const desiredLeftInZone = (normalizedTilt * (zoneRect.width - shipW) / 2) + (zoneRect.width - shipW) / 2;
+      targetLeft = clampToZone(desiredLeftInZone);
+      
+      // Use tilt for rotation too
+      targetRotation = Math.max(-maxRotation, Math.min(maxRotation, smoothedGamma * tiltSensitivity));
+      lastMoveTime = performance.now();
+    }
+  }
+
+  // Request permission for device orientation on iOS
+  function requestOrientationPermission() {
+    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+      DeviceOrientationEvent.requestPermission()
+        .then(permissionState => {
+          if (permissionState === 'granted') {
+            window.addEventListener('deviceorientation', handleDeviceOrientation);
+            console.log('Device orientation permission granted');
+          } else {
+            console.log('Device orientation permission denied');
+            // Fall back to touch controls
+            setupTouchControls();
+          }
+        })
+        .catch(console.error);
+    } else {
+      // Non-iOS devices or browsers that don't require permission
+      window.addEventListener('deviceorientation', handleDeviceOrientation);
+    }
+  }
+
+  // Touch controls as fallback
+  function setupTouchControls() {
+    document.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const mouseEvent = new MouseEvent('mousemove', {
+        clientX: touch.clientX,
+        clientY: touch.clientY
+      });
+      handleMouseMove(mouseEvent);
+    });
+  }
+
+  // Initialize input methods based on device type
+  function initializeInput() {
+    isMobile = detectMobile();
+    
+    if (isMobile) {
+      console.log('Mobile device detected - using tilt controls');
+      // Remove mouse event listener for mobile
+      document.removeEventListener('mousemove', handleMouseMove);
+      
+      // Add click/tap to request orientation permission
+      document.addEventListener('click', requestOrientationPermission, { once: true });
+      
+      // Also set up touch controls as fallback
+      setupTouchControls();
+    } else {
+      console.log('Desktop device detected - using mouse controls');
+      document.addEventListener('mousemove', handleMouseMove);
+    }
+  }
+
+  // Shoot function — append bullets to the global bullet container
+  function shoot() {
+    // fresh rects
+    const shipRect = ship.getBoundingClientRect();
+    zoneRect = shipZone.getBoundingClientRect();
+    contactRect = contactSection.getBoundingClientRect();
+
+    const b = document.createElement('div');
+    b.className = 'bullet';
+    // append to global bullet container instead of ship-zone
+    bulletContainer.appendChild(b);
+
+    // Use absolute screen coordinates instead of zone-relative
+    const bx = shipRect.left + shipRect.width / 2 - 4; // center bullet horizontally
+    const by = shipRect.top + shipRect.height / 2; // middle of ship height
+
+    b.style.left = `${bx}px`;
+    b.style.top = `${by}px`;
+
+    bullets.push({
+      element: b,
+      top: by,
+      startTop: by // store starting position for reference
+    });
+  }
+
+  // Start shooting AFTER initial refresh (ensures rects exist)
+  refreshZone();
+  const shootIntervalMs = 800;
+  const shootTimer = setInterval(shoot, shootIntervalMs);
+
+  // animate bullets moving up, remove when they reach top of contact section
+  function animateBullets() {
+    // Update contact section position in case of scrolling
+    contactRect = contactSection.getBoundingClientRect();
+    
+    for (let i = bullets.length - 1; i >= 0; i--) {
+      const bullet = bullets[i];
+      bullet.top -= 8; // bullet speed
+      bullet.element.style.top = `${bullet.top}px`;
+      
+      // Remove when bullets reach the top of the contact section
+      // The top of contact section is contactRect.top
+      if (bullet.top < contactRect.top) {
+        bullet.element.remove();
+        bullets.splice(i, 1);
+      }
+    }
+    requestAnimationFrame(animateBullets);
+  }
+  animateBullets();
+
+  // Main animation for ship position + rotation smoothing
+  function animate() {
+    displayedLeft += (targetLeft - displayedLeft) * posLerp;
+    container.style.left = `${displayedLeft}px`;
+    container.style.transform = ''; // ensure no translateX interference
+
+    // rotation decay
+    const now = performance.now();
+    if (now - lastMoveTime > idleDelay) {
+      targetRotation += (0 - targetRotation) * idleDecay;
+    }
+    rotation += (targetRotation - rotation) * rotLerp;
+    ship.style.transform = `rotate(${rotation}deg)`;
+
+    requestAnimationFrame(animate);
+  }
+
+  // initialize and start
+  refreshZone();
+  displayedLeft = clampToZone((zoneRect.width - shipW) / 2);
+  targetLeft = displayedLeft;
+  container.style.left = `${displayedLeft}px`;
+
+  // Initialize input method
+  initializeInput();
+
+  animate();
+
+  // keep things correct on resize/scroll
+  window.addEventListener('resize', refreshZone);
+  window.addEventListener('scroll', refreshZone, { passive: true });
+
+})();
+</script>
+
+
+
+
 </body>
 </html>
