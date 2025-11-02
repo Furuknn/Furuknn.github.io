@@ -6,6 +6,8 @@
   <title>Furkan Erbilgin Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- FONTAWESOME ICONS -->
+  <script src="https://kit.fontawesome.com/b1d23e24cb.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -20,7 +22,7 @@
 
   <header id="intro" class="intro-section">
     <p class="hello">Hello, I'm</p>
-    <h1>Furkan ERBILGIN</h1>
+    <h1>Furkan ERBİLGİN</h1>
 <p class="role">Game Developer</p>
   </header>
 
@@ -28,12 +30,13 @@
   <h2>About me</h2>
   <div class="about-content">
     <div class="about-text">
-      <p>Hi, I'm Furkan, a Game Designer passionate about <b>Gameplay Systems</b>, <b>Level Design</b>, and <b>Player Experience</b>. I specialize in creating engaging mechanics and balanced player challenges. You can see more on my CV!</p>
+      I've been captivated by video games since childhood, not just as a player but as someone fascinated by the magic behind them. Now, as a game dev student, I aspire to create games that do more than entertain. I want to craft experiences that spark joy, evoke nostalgia, and leave a lasting emotional impact—games that become as cherished to others as my childhood favorites are to me.
+
 
       <div class="info-grid">
         <div>
           <h4>FULL NAME</h4>
-          <p>Furkan ERBILGIN</p>
+          <p>Furkan Erbilgin</p>
         </div>
         <div>
           <h4>ADDRESS</h4>
@@ -43,15 +46,14 @@
           <h4>EMAIL</h4>
 			<p>erbilginfurkan@gmail.com</p>
         </div>
-        <div>
-          <h4>LINKEDIN</h4>
-          <p>@furkan-erbilgin</p>
-        </div>
+        
       </div>
 
       <div class="cv-buttons">
         <a href="Furkan_CV_EN.pdf" class="cv-btn">Download English CV</a>
+		  <!--    
         <a href="Furkan_CV_TR.pdf" class="cv-btn">Download Turkish CV</a>
+			-->
       </div>
     </div>
   </div>
@@ -60,10 +62,10 @@
 <section id="projects" class="projects">
   <h2>Projects</h2>
  <div class="project-grid">
-	<div class="project-card">
+	<div class="project-card" onclick="location.href='blade-of-vengeance.html'">
     <div class="project-video">
       <video autoplay loop muted playsinline>
-        <source src="Bov_Gameplay.mp4" type="video/mp4">
+        <source src="videos/Bov_Gameplay.mp4" type="video/mp4">
       </video>
 
       <div class="project-meta">
@@ -84,7 +86,7 @@
   <div class="project-card">
     <div class="project-video">
       <video autoplay loop muted playsinline>
-        <source src="EchoValley.mp4" type="video/mp4">
+        <source src="videos/Pers_Gameplay.mp4" type="video/mp4">
       </video>
 
       <div class="project-meta">
@@ -101,30 +103,85 @@
         PERS is a <strong>multiplayer puzzle–escape room adventure</strong> where you and your partner play as two archaeologists exploring a <strong>mysterious ancient temple</strong>. You will have to solve intricate puzzles together, until your paths split. What begins as teamwork ends in betrayal, as the final act throws both players into a tense <strong>FPS showdown</strong> where only one can escape.</p>
     </div>
   </div>
+	 
+   <div class="project-card">
+    <div class="project-video">
+      <video autoplay loop muted playsinline>
+        <source src="Pers_Gameplay.mp4" type="video/mp4">
+      </video>
+
+      <div class="project-meta">
+        <span>👥 2</span>
+        <span>⏱ 3 Days</span>
+        <span>🔧 Unity</span>
+      </div>
+    </div>
+
+    <div class="project-info">
+      <h3>Le Café (2023)</h3>
+      <p class="role">Game Developer</p>
+      <p class="desc">
+        PERS is a <strong>multiplayer puzzle–escape room adventure</strong> where you and your partner play as two archaeologists exploring a <strong>mysterious ancient temple</strong>. You will have to solve intricate puzzles together, until your paths split. What begins as teamwork ends in betrayal, as the final act throws both players into a tense <strong>FPS showdown</strong> where only one can escape.</p>
+    </div>
+  </div>
+	 
+   <div class="project-card">
+    <div class="project-video">
+      <video autoplay loop muted playsinline>
+        <source src="Pers_Gameplay.mp4" type="video/mp4">
+      </video>
+
+      <div class="project-meta">
+        <span>👥 2</span>
+        <span>⏱ 3 Days</span>
+        <span>🔧 Unity</span>
+      </div>
+    </div>
+
+    <div class="project-info">
+      <h3>Pacman but Better (2023)</h3>
+      <p class="role">Game Developer</p>
+      <p class="desc">
+        PERS is a <strong>multiplayer puzzle–escape room adventure</strong> where you and your partner play as two archaeologists exploring a <strong>mysterious ancient temple</strong>. You will have to solve intricate puzzles together, until your paths split. What begins as teamwork ends in betrayal, as the final act throws both players into a tense <strong>FPS showdown</strong> where only one can escape.</p>
+    </div>
+  </div>
+	 
+<!-- End of projects section -->
 </div>
   
 </section>
 
 <!-- === CONTACT SECTION === -->
 <section id="contact" class="contact">
-  <h2>Let's Get in Touch</h2>
-  <p>If you’d like to collaborate, have a question, or just say hi — feel free to reach out!</p>
+  <h2>Feel Free to Contact Me</h2>
+  <p>If you’d like to learn more about me, here are my socials. </p>
 
   <div class="contact-buttons">
     <a href="mailto:erbilginfurkan@gmail.com" class="contact-btn">
-      ✉️ Send me an Email
+		<i class="fa-solid fa-envelope"></i>
+		Send me an Email
     </a>
     <a href="https://www.linkedin.com/in/furkan-erbilgin-13549734a" target="_blank" class="contact-btn">
-      💼 Connect on LinkedIn
+		<i class="fa-brands fa-square-linkedin"></i>
+      Connect on LinkedIn
     </a>
   </div>
 
   <div class="social-links">
     <p>YOU CAN ALSO FIND ME HERE:</p>
     <div class="icons">
-      <a href="https://www.linkedin.com/in/furkan-erbilgin" target="_blank">🔗</a>
-      <a href="https://github.com/furkanerbilgin" target="_blank">🐙</a>
-      <a href="#">💡</a>
+		<!-- Itch.io -->
+      <a href="https://furkna.itch.io" target="_blank">
+		<i class="fa-brands fa-itch-io fa-lg"></i>
+		</a>
+		<!-- Github -->
+      <a href="https://github.com/furkanerbilgin" target="_blank">
+		<i class="fa-brands fa-github fa-lg"></i>
+		</a>
+		<!-- Behance -->
+      <a href="https://www.behance.net/furkanerbilgin">
+		<i class="fa-brands fa-behance"></i>
+		</a>
     </div>
   </div>
 
@@ -158,19 +215,17 @@
     <h5>Follow Me</h5>
     <div class="icons">
       <a href="https://www.linkedin.com/in/furkan-erbilgin-13549734a" target="_blank">
-		  <img src="icon_linkedin.png"></img>
+		  <img src="icons/icon_linkedin.png"></img>
 	  	</a>
-      <a href="https://github.com/furkanerbilgin" target="_blank">
-		  <img src="icon_github.png"></img>
+      <a href="https://github.com/Furuknn" target="_blank">
+		  <img src="icons/icon_github.png"></img>
 	  	</a>
-	<a href="https://github.com/furkanerbilgin" target="_blank">
-		  <img src="icon_instagram.png"></img>
+	<a href="https://www.instagram.com/furuknnn" target="_blank">
+		  <img src="icons/icon_instagram.png"></img>
 	  	</a>
     </div>
   </div>
 </footer>
-	
-	
 	
 <!-- Navigation Bar's blur effect -->
 <script>
@@ -184,6 +239,88 @@
       nav.style.backdropFilter = "blur(10px)";
     }
   });
+</script>
+
+<!-- Navigation highlight based on scroll position -->
+<script>
+(function() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  
+  // Remove all active classes
+  function removeActiveClasses() {
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+    });
+  }
+  
+  // Add active class to corresponding navigation link
+  function addActiveClass(id) {
+    removeActiveClasses();
+    const correspondingLink = document.querySelector(`nav a[href="#${id}"]`);
+    if (correspondingLink) {
+      correspondingLink.classList.add('active');
+    }
+  }
+  
+  // Intersection Observer - more precise
+  const observerOptions = {
+    root: null,
+    rootMargin: '-40% 0px -60% 0px', // Adjust these values to change when highlight triggers
+    threshold: 0
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    let foundActive = false;
+    
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !foundActive) {
+        const activeSection = entry.target.getAttribute('id');
+        addActiveClass(activeSection);
+        foundActive = true;
+      }
+    });
+  }, observerOptions);
+  
+  // Observe all sections
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+  
+  // Click handling for immediate feedback
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      // Small delay to ensure scroll completes
+      setTimeout(() => {
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) {
+          const sectionId = href.substring(1);
+          addActiveClass(sectionId);
+        }
+      }, 100);
+    });
+  });
+  
+  // Set initial active state based on URL hash
+  function setInitialActive() {
+    const hash = window.location.hash;
+    if (hash) {
+      const sectionId = hash.substring(1);
+      addActiveClass(sectionId);
+    } else {
+      // Default to intro section
+      addActiveClass('intro');
+    }
+  }
+  
+  // Handle browser back/forward buttons
+  window.addEventListener('hashchange', setInitialActive);
+  
+  // Initial setup
+  setInitialActive();
+})();
+
+
 </script>
 
 <!-- Spaceship logic -->
@@ -202,7 +339,7 @@
   const ship = shipZone.querySelector('.spaceship');
   if (!container || !ship) { console.warn('Missing ship elements'); return; }
 
-  // state
+  // State
   let zoneRect = shipZone.getBoundingClientRect();
   let contactRect = contactSection.getBoundingClientRect();
   let shipW = ship.offsetWidth || 72;
@@ -215,10 +352,10 @@
 
   // Device orientation state
   let isMobile = false;
-  let lastGamma = 0; // left/right tilt
-  let tiltSensitivity = 2.5; // adjust this to make tilting more/less sensitive
+  let lastGamma = 0;
+  let tiltSensitivity = 2.5;
 
-  // tuning
+  // Tuning
   const maxRotation = 12;
   const rotFactor = 0.25;
   const posLerp = 0.18;
@@ -226,8 +363,13 @@
   const idleDelay = 120;
   const idleDecay = 0.08;
 
-  // bullets
+  // Bullets & animation control
   const bullets = [];
+  let lastShotTime = 0;
+  const shootIntervalMs = 800;
+  let animationFrameId;
+  let isAnimating = false;
+  let isBulletZoneInView = false;
 
   // Detect if mobile device
   function detectMobile() {
@@ -249,13 +391,84 @@
     return Math.min(Math.max(min, x), max);
   }
 
-  // Mouse movement handler (for desktop)
-  function handleMouseMove(e) {
-    if (isMobile) return; // Don't use mouse events on mobile
+  // Check if bullet container area is in viewport (ship-zone + contact section)
+  function checkBulletZoneInView() {
+    const shipRect = shipZone.getBoundingClientRect();
+    const contactRect = contactSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
     
-    // recompute zoneRect in case page moved
-    zoneRect = shipZone.getBoundingClientRect();
+    // Check if any part of either ship zone OR contact section is visible
+    // This ensures bullets continue when moving from ship-zone to contact section
+    isBulletZoneInView = (
+      (shipRect.top <= windowHeight && shipRect.bottom >= 0) || // Ship zone visible
+      (contactRect.top <= windowHeight && contactRect.bottom >= 0) // Contact section visible
+    );
+    
+    return isBulletZoneInView;
+  }
 
+  // Start/stop animation based on visibility
+  function handleVisibilityChange() {
+    const bulletZoneVisible = checkBulletZoneInView();
+    const pageVisible = !document.hidden;
+    
+    if (bulletZoneVisible && pageVisible && !isAnimating) {
+      startAnimation();
+    } else if ((!bulletZoneVisible || !pageVisible) && isAnimating) {
+      stopAnimation();
+    }
+  }
+
+  function startAnimation() {
+    if (isAnimating) return;
+    
+    isAnimating = true;
+    lastShotTime = performance.now();
+    animationFrameId = requestAnimationFrame(gameLoop);
+    console.log('Spaceship animation started');
+  }
+
+  function stopAnimation() {
+    if (!isAnimating) return;
+    
+    isAnimating = false;
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = null;
+    }
+    console.log('Spaceship animation stopped');
+  }
+
+  // Main game loop - only runs when animation is active
+  function gameLoop(currentTime) {
+    if (!isAnimating) return;
+    
+    // Update zone rects for accurate positioning
+    refreshZone();
+    
+    // Shooting logic - only shoot if ship zone is in view
+    const shipRect = shipZone.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    const isShipInView = (shipRect.top <= windowHeight && shipRect.bottom >= 0);
+    
+    if (isShipInView && currentTime - lastShotTime > shootIntervalMs) {
+      shoot();
+      lastShotTime = currentTime;
+    }
+    
+    // Update animations
+    animateBullets();
+    animateShip();
+    
+    // Continue loop
+    animationFrameId = requestAnimationFrame(gameLoop);
+  }
+
+  // Mouse movement handler
+  function handleMouseMove(e) {
+    if (isMobile || !isAnimating) return;
+    
+    refreshZone();
     const desiredLeftInZone = e.clientX - zoneRect.left - shipW / 2;
     targetLeft = clampToZone(desiredLeftInZone);
 
@@ -265,55 +478,127 @@
     lastMoveTime = performance.now();
   }
 
-  // Device orientation handler (for mobile)
-  function handleDeviceOrientation(e) {
-    if (!isMobile) return;
+  // Cleanup function
+  function cleanup() {
+    stopAnimation();
     
-    // Gamma is left/right tilt (-90 to 90 degrees)
-    const gamma = e.gamma; 
+    // Clear all bullets
+    bullets.forEach(bullet => {
+      if (bullet.element && bullet.element.parentNode) {
+        bullet.element.remove();
+      }
+    });
+    bullets.length = 0;
+  }
+
+  // Shoot function
+  function shoot() {
+    if (!isAnimating) return;
     
-    if (gamma !== null) {
-      // Smooth the tilt data a bit
-      const smoothedGamma = lastGamma * 0.7 + gamma * 0.3;
-      lastGamma = smoothedGamma;
+    const shipRect = ship.getBoundingClientRect();
+    const bx = shipRect.left + shipRect.width / 2 - 4;
+    const by = shipRect.top + shipRect.height / 2;
+
+    const b = document.createElement('div');
+    b.className = 'bullet';
+    bulletContainer.appendChild(b);
+
+    b.style.left = `${bx}px`;
+    b.style.top = `${by}px`;
+
+    bullets.push({
+      element: b,
+      top: by,
+      startTop: by,
+      size: 8
+    });
+  }
+
+  // Animate bullets
+  function animateBullets() {
+    if (!isAnimating) return;
+    
+    for (let i = bullets.length - 1; i >= 0; i--) {
+      const bullet = bullets[i];
+      if (!bullet.element || !bullet.element.parentNode) {
+        bullets.splice(i, 1);
+        continue;
+      }
       
-      // Convert tilt to ship position (gamma ranges from -90 to 90)
-      // We'll use a portion of that range for smoother control
-      const tiltRange = 30; // Use ±30 degrees of tilt for full movement
-      const normalizedTilt = Math.max(-tiltRange, Math.min(tiltRange, smoothedGamma)) / tiltRange;
+      bullet.top -= 8;
+      bullet.element.style.top = `${bullet.top}px`;
       
-      // Convert normalized tilt to ship position
-      const desiredLeftInZone = (normalizedTilt * (zoneRect.width - shipW) / 2) + (zoneRect.width - shipW) / 2;
-      targetLeft = clampToZone(desiredLeftInZone);
-      
-      // Use tilt for rotation too
-      targetRotation = Math.max(-maxRotation, Math.min(maxRotation, smoothedGamma * tiltSensitivity));
-      lastMoveTime = performance.now();
+      // Remove when bullets reach the top of the contact section
+      if (bullet.top < contactRect.top) {
+        bullet.element.remove();
+        bullets.splice(i, 1);
+      }
     }
   }
 
-  // Request permission for device orientation on iOS
+  // Animate ship
+  function animateShip() {
+    if (!isAnimating) return;
+    
+    displayedLeft += (targetLeft - displayedLeft) * posLerp;
+    container.style.left = `${displayedLeft}px`;
+    container.style.transform = '';
+
+    const now = performance.now();
+    if (now - lastMoveTime > idleDelay) {
+      targetRotation += (0 - targetRotation) * idleDecay;
+    }
+    rotation += (targetRotation - rotation) * rotLerp;
+    ship.style.transform = `rotate(${rotation}deg)`;
+  }
+
+  // Initialize input methods
+  function initializeInput() {
+    isMobile = detectMobile();
+    
+    if (isMobile) {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.addEventListener('click', requestOrientationPermission, { once: true });
+      setupTouchControls();
+    } else {
+      document.addEventListener('mousemove', handleMouseMove);
+    }
+  }
+
+  // Device orientation permission
   function requestOrientationPermission() {
     if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
       DeviceOrientationEvent.requestPermission()
         .then(permissionState => {
           if (permissionState === 'granted') {
             window.addEventListener('deviceorientation', handleDeviceOrientation);
-            console.log('Device orientation permission granted');
-          } else {
-            console.log('Device orientation permission denied');
-            // Fall back to touch controls
-            setupTouchControls();
           }
         })
         .catch(console.error);
     } else {
-      // Non-iOS devices or browsers that don't require permission
       window.addEventListener('deviceorientation', handleDeviceOrientation);
     }
   }
 
-  // Touch controls as fallback
+  function handleDeviceOrientation(e) {
+    if (!isMobile || !isAnimating) return;
+    const gamma = e.gamma; 
+    
+    if (gamma !== null) {
+      const smoothedGamma = lastGamma * 0.7 + gamma * 0.3;
+      lastGamma = smoothedGamma;
+      
+      const tiltRange = 30;
+      const normalizedTilt = Math.max(-tiltRange, Math.min(tiltRange, smoothedGamma)) / tiltRange;
+      
+      const desiredLeftInZone = (normalizedTilt * (zoneRect.width - shipW) / 2) + (zoneRect.width - shipW) / 2;
+      targetLeft = clampToZone(desiredLeftInZone);
+      
+      targetRotation = Math.max(-maxRotation, Math.min(maxRotation, smoothedGamma * tiltSensitivity));
+      lastMoveTime = performance.now();
+    }
+  }
+
   function setupTouchControls() {
     document.addEventListener('touchmove', (e) => {
       e.preventDefault();
@@ -326,109 +611,45 @@
     });
   }
 
-  // Initialize input methods based on device type
-  function initializeInput() {
-    isMobile = detectMobile();
-    
-    if (isMobile) {
-      console.log('Mobile device detected - using tilt controls');
-      // Remove mouse event listener for mobile
-      document.removeEventListener('mousemove', handleMouseMove);
-      
-      // Add click/tap to request orientation permission
-      document.addEventListener('click', requestOrientationPermission, { once: true });
-      
-      // Also set up touch controls as fallback
-      setupTouchControls();
-    } else {
-      console.log('Desktop device detected - using mouse controls');
-      document.addEventListener('mousemove', handleMouseMove);
-    }
-  }
-
-  // Shoot function — append bullets to the global bullet container
-  function shoot() {
-    // fresh rects
-    const shipRect = ship.getBoundingClientRect();
-    zoneRect = shipZone.getBoundingClientRect();
-    contactRect = contactSection.getBoundingClientRect();
-
-    const b = document.createElement('div');
-    b.className = 'bullet';
-    // append to global bullet container instead of ship-zone
-    bulletContainer.appendChild(b);
-
-    // Use absolute screen coordinates instead of zone-relative
-    const bx = shipRect.left + shipRect.width / 2 - 4; // center bullet horizontally
-    const by = shipRect.top + shipRect.height / 2; // middle of ship height
-
-    b.style.left = `${bx}px`;
-    b.style.top = `${by}px`;
-
-    bullets.push({
-      element: b,
-      top: by,
-      startTop: by // store starting position for reference
-    });
-  }
-
-  // Start shooting AFTER initial refresh (ensures rects exist)
-  refreshZone();
-  const shootIntervalMs = 800;
-  const shootTimer = setInterval(shoot, shootIntervalMs);
-
-  // animate bullets moving up, remove when they reach top of contact section
-  function animateBullets() {
-    // Update contact section position in case of scrolling
-    contactRect = contactSection.getBoundingClientRect();
-    
-    for (let i = bullets.length - 1; i >= 0; i--) {
-      const bullet = bullets[i];
-      bullet.top -= 8; // bullet speed
-      bullet.element.style.top = `${bullet.top}px`;
-      
-      // Remove when bullets reach the top of the contact section
-      // The top of contact section is contactRect.top
-      if (bullet.top < contactRect.top) {
-        bullet.element.remove();
-        bullets.splice(i, 1);
-      }
-    }
-    requestAnimationFrame(animateBullets);
-  }
-  animateBullets();
-
-  // Main animation for ship position + rotation smoothing
-  function animate() {
-    displayedLeft += (targetLeft - displayedLeft) * posLerp;
-    container.style.left = `${displayedLeft}px`;
-    container.style.transform = ''; // ensure no translateX interference
-
-    // rotation decay
-    const now = performance.now();
-    if (now - lastMoveTime > idleDelay) {
-      targetRotation += (0 - targetRotation) * idleDecay;
-    }
-    rotation += (targetRotation - rotation) * rotLerp;
-    ship.style.transform = `rotate(${rotation}deg)`;
-
-    requestAnimationFrame(animate);
-  }
-
-  // initialize and start
+  // Initialize everything
+  initializeInput();
   refreshZone();
   displayedLeft = clampToZone((zoneRect.width - shipW) / 2);
   targetLeft = displayedLeft;
   container.style.left = `${displayedLeft}px`;
 
-  // Initialize input method
-  initializeInput();
+  // Set up visibility observers for both ship zone AND contact section
+  const intersectionObserver = new IntersectionObserver((entries) => {
+    handleVisibilityChange();
+  }, { 
+    threshold: 0,
+    rootMargin: '50px' // Add some margin to start animation a bit earlier
+  });
 
-  animate();
+  // Observe both sections that contain the bullet path
+  intersectionObserver.observe(shipZone);
+  intersectionObserver.observe(contactSection);
 
-  // keep things correct on resize/scroll
-  window.addEventListener('resize', refreshZone);
-  window.addEventListener('scroll', refreshZone, { passive: true });
+  // Page visibility API
+  document.addEventListener('visibilitychange', handleVisibilityChange);
+
+  // Initial check
+  handleVisibilityChange();
+
+  // Clean up on page unload
+  window.addEventListener('beforeunload', cleanup);
+  window.addEventListener('pagehide', cleanup);
+
+  // Keep things correct on resize/scroll
+  window.addEventListener('resize', () => {
+    refreshZone();
+    handleVisibilityChange();
+  });
+  
+  window.addEventListener('scroll', () => {
+    refreshZone();
+    handleVisibilityChange();
+  }, { passive: true });
 
 })();
 </script>
